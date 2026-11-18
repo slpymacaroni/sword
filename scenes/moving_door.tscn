@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cv80nu503dbxb"]
+
+[ext_resource type="Script" uid="uid://tucpehnrkqy6" path="res://moving_door.gd" id="1_bg7f2"]
+[ext_resource type="Texture2D" uid="uid://p7l03dce6e1w" path="res://assets/sprites/moving_door.png" id="2_5r3as"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikr2t"]
+size = Vector2(16, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe7hj"]
+atlas = ExtResource("2_5r3as")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qo1y"]
+atlas = ExtResource("2_5r3as")
+region = Rect2(0, 0, 16, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dirun"]
+atlas = ExtResource("2_5r3as")
+region = Rect2(16, 0, 16, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dj38d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe7hj")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qo1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dirun")
+}],
+"loop": 1,
+"name": &"moving",
+"speed": 7.0
+}]
+
+[node name="MovingDoor" type="CharacterBody2D" unique_id=1092572464]
+position = Vector2(0, -31)
+script = ExtResource("1_bg7f2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2042666570]
+position = Vector2(0, 22.5)
+shape = SubResource("RectangleShape2D_ikr2t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1662186688]
+position = Vector2(0, 23)
+sprite_frames = SubResource("SpriteFrames_dj38d")
+animation = &"moving"
+frame_progress = 0.09652974

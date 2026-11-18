@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dcxw8n0vhq2u3"]
+
+[ext_resource type="AudioStream" uid="uid://cx7wxt8xxdox7" path="res://assets/music/bgm.wav" id="1_05ggv"]
+
+[node name="Music" type="AudioStreamPlayer2D" unique_id=1247101514]
+position = Vector2(0, -1)
+stream = ExtResource("1_05ggv")
+max_distance = 9.223372e+18
+attenuation = 0.034674037
+bus = &"Music"

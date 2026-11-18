@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://m0er1bsrhy78"]
+
+[ext_resource type="Script" uid="uid://cds2i3wpgk6vw" path="res://scripts/arrowleft.gd" id="1_aegfu"]
+[ext_resource type="Texture2D" uid="uid://cbdsdjqg74hqk" path="res://assets/sprites/arrow.png" id="2_okdkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umosx"]
+size = Vector2(14, 6)
+
+[node name="arrowleft" type="Node2D" unique_id=323476018]
+z_index = 5
+position = Vector2(312, 85)
+script = ExtResource("1_aegfu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=339591980 groups=["slime"]]
+position = Vector2(0, 1)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=527587971]
+shape = SubResource("RectangleShape2D_umosx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=404972952]
+position = Vector2(0, 1)
+rotation = -3.1415927
+texture = ExtResource("2_okdkw")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://u7537tr6jonu"]
+
+[ext_resource type="Script" uid="uid://b8wo1xk0qk6xl" path="res://scripts/healthpickup.gd" id="1_iu010"]
+[ext_resource type="Texture2D" uid="uid://bf51q70ixoxyc" path="res://assets/sprites/hp_pickup.png" id="2_ueguc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilx7y"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueguc"]
+atlas = ExtResource("2_ueguc")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xukdb"]
+atlas = ExtResource("2_ueguc")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hs0q"]
+atlas = ExtResource("2_ueguc")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilx7y"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_ueguc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xukdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hs0q")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvedk"]
+radius = 4.0
+
+[sub_resource type="Gradient" id="Gradient_ueguc"]
+colors = PackedColorArray(0.95155615, 0.18152547, 0.31282577, 1, 0.93, 0.26349998, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ikr2t"]
+gradient = SubResource("Gradient_ueguc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dj38d"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, -24.5, 0)
+color_ramp = SubResource("GradientTexture1D_ikr2t")
+
+[node name="healthpickup" type="CharacterBody2D" unique_id=1014521605]
+script = ExtResource("1_iu010")
+
+[node name="area2d" type="Area2D" parent="." unique_id=882924635 groups=["healthpickup"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area2d" unique_id=947141751]
+shape = SubResource("CircleShape2D_ilx7y")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1676576747]
+position = Vector2(1.1920929e-07, 5.9604645e-08)
+scale = Vector2(0.9640624, 0.9640624)
+sprite_frames = SubResource("SpriteFrames_ilx7y")
+autoplay = "default"
+frame_progress = 0.41443077
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980606026]
+shape = SubResource("CircleShape2D_mvedk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1491454829]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_dj38d")
+
+[connection signal="area_entered" from="area2d" to="." method="_on_character_body_2d_area_entered"]

@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://c7quum3t2t23f"]
+
+[ext_resource type="Script" uid="uid://ccfo3lvuud3qy" path="res://scripts/fragile_rock.gd" id="1_scls8"]
+[ext_resource type="Texture2D" uid="uid://cbwy4feny3k7s" path="res://assets/sprites/fragilerock.png" id="1_ufuad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj38d"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufuad"]
+atlas = ExtResource("1_ufuad")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ac3w"]
+atlas = ExtResource("1_ufuad")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fkfs"]
+atlas = ExtResource("1_ufuad")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scls8"]
+atlas = ExtResource("1_ufuad")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dj38d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufuad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ac3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fkfs")
+}],
+"loop": 0,
+"name": &"breaking",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scls8")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikr2t"]
+size = Vector2(14, 4)
+
+[sub_resource type="Animation" id="Animation_scls8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4ac3w"]
+resource_name = "shake"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-2, 0), Vector2(2, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-0.5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1fkfs"]
+_data = {
+&"RESET": SubResource("Animation_scls8"),
+&"shake": SubResource("Animation_4ac3w")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_scls8"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_scls8"]
+load_path = "res://.godot/imported/rockparticles.png-8ee83fd8728a5d4fd1dbc5966a4051c7.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dj38d"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 5, 1)
+gravity = Vector3(0, 98, 0)
+linear_accel_min = 7.029998
+linear_accel_max = 45.369995
+radial_accel_min = -60.0
+radial_accel_max = 59.999996
+anim_offset_max = 1.0
+
+[sub_resource type="Animation" id="Animation_1fkfs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fkmyr"]
+resource_name = "particles"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdnm5"]
+_data = {
+&"RESET": SubResource("Animation_1fkfs"),
+&"particles": SubResource("Animation_fkmyr")
+}
+
+[sub_resource type="Animation" id="Animation_sdnm5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1ymwd"]
+resource_name = "respawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dj5cj"]
+_data = {
+&"RESET": SubResource("Animation_sdnm5"),
+&"respawn": SubResource("Animation_1ymwd")
+}
+
+[node name="FragileRock" type="CharacterBody2D" unique_id=675550493]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_scls8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=915064465]
+shape = SubResource("RectangleShape2D_dj38d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=662447310]
+sprite_frames = SubResource("SpriteFrames_dj38d")
+animation = &"breaking"
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1813518430]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1877221797]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ikr2t")
+
+[node name="shakeanimation" type="AnimationPlayer" parent="." unique_id=1275798962]
+libraries/ = SubResource("AnimationLibrary_1fkfs")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=179015143]
+material = SubResource("CanvasItemMaterial_scls8")
+emitting = false
+amount = 60
+texture = SubResource("CompressedTexture2D_scls8")
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_dj38d")
+
+[node name="particlesanimation" type="AnimationPlayer" parent="." unique_id=276001700]
+libraries/ = SubResource("AnimationLibrary_sdnm5")
+
+[node name="RespawnAnimation" type="AnimationPlayer" parent="." unique_id=1999557505]
+libraries/ = SubResource("AnimationLibrary_dj5cj")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

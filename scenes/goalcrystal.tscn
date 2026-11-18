@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bnce0brqjkqde"]
+
+[ext_resource type="Script" uid="uid://cmfu3ngt70rc" path="res://scripts/goalcrystal.gd" id="1_jtctx"]
+[ext_resource type="Texture2D" uid="uid://bukb4236av81i" path="res://assets/sprites/goalcrystal.png" id="2_0ps3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtctx"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ps3c"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(32, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqi8x"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(64, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_771sq"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(96, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skp3f"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2vv1"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_015gc"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frqoe"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bloin"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7fv1"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s361l"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te7ud"]
+atlas = ExtResource("2_0ps3c")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqi8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtctx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ps3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqi8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_771sq")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skp3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2vv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_015gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frqoe")
+}],
+"loop": true,
+"name": &"collected_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bloin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7fv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s361l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te7ud")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_771sq"]
+size = Vector2(20, 25)
+
+[node name="goalcrystal" type="Node2D" unique_id=1449820870]
+script = ExtResource("1_jtctx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=555228721]
+sprite_frames = SubResource("SpriteFrames_vqi8x")
+animation = &"collected_idle"
+autoplay = "idle"
+frame_progress = 0.43682063
+
+[node name="crystal" type="Area2D" parent="." unique_id=1645738107]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="crystal" unique_id=1611403494]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_771sq")
+
+[connection signal="area_entered" from="crystal" to="." method="_on_area_2d_area_entered"]

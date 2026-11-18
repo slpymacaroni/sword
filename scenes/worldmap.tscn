@@ -1,0 +1,117 @@
+[gd_scene format=4 uid="uid://cnnuqpkfe8pe4"]
+
+[ext_resource type="Texture2D" uid="uid://bp4lmdnylf5bb" path="res://assets/sprites/grass-iso-tileset.png" id="1_8l25j"]
+[ext_resource type="PackedScene" uid="uid://bo2kw2tac474v" path="res://scenes/iso-crystal.tscn" id="2_mqdrm"]
+[ext_resource type="Script" uid="uid://cbwtqbjjk0a40" path="res://scripts/tile_map_layer.gd" id="2_pb1l4"]
+[ext_resource type="PackedScene" uid="uid://dvx0liwsuu11l" path="res://scenes/iso_player.tscn" id="2_tahli"]
+[ext_resource type="Texture2D" uid="uid://cevp2bkqt1unk" path="res://assets/sprites/plains_tileset.png" id="3_8vx1g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tahli"]
+texture = ExtResource("1_8l25j")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -2)
+2:0/0/z_index = 1
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -2)
+3:0/0/z_index = 1
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, -4)
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, -2)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, -2)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8vx1g"]
+scenes/3/scene = ExtResource("2_mqdrm")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vx1g"]
+texture = ExtResource("3_8vx1g")
+texture_region_size = Vector2i(16, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ilx7y"]
+tile_shape = 1
+tile_size = Vector2i(16, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tahli")
+sources/1 = SubResource("TileSetScenesCollectionSource_8vx1g")
+sources/2 = SubResource("TileSetAtlasSource_8vx1g")
+
+[node name="Node2D" type="Node2D" unique_id=1384449871]
+
+[node name="foreground" type="TileMapLayer" parent="." unique_id=882366783]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAAAAAAAAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAcAAAABAAAAAAAAAAgAAAABAAAAAAD//wcAAAABAAAAAAAAAAYAAAABAAAAAAD//wUAAAABAAAAAAAAAAIAAAABAAAAAAAAAPv/AAABAAAAAAACAP3/AAABAAAAAAAAAPz/AAADAAEAAAADAP7/AAADAAEAAAADAP3/AAABAAAAAAADAPz/AAABAAAAAAACAPj/AAABAAAAAAACAPn/AAABAAAAAAADAPr/AAABAAAAAAAAAPn/AAABAAEAAAAAAPj/AAABAAAAAAD///n/AAABAAEAAAD///v/AAACAAEAAAD///r/AAABAAAAAAD+//T/AAABAAAAAAD+//X/AAABAAAAAAD+//f/AAABAAAAAAD+//b/AAABAAAAAAD///X/AAABAAAAAAAAAPX/AAABAAAAAAABAPX/AAABAAAAAAACAPX/AAABAAAAAAD+//P/AAABAAAAAAD///L/AAABAAAAAAAAAPT/AAABAAAAAAACAPP/AAABAAAAAAACAPL/AAADAAEAAAABAPL/AAADAAEAAAAAAPH/AAABAAAAAAD///H/AAABAAAAAAD///D/AAACAAEAAAD+//H/AAABAAAAAAAAAPD/AAABAAAAAAD///f/AAADAAAAAAABAPv/AAABAAAAAAABAPn/AAABAAAAAAABAPT/AAABAAAAAAAAAPP/AAABAAEAAAAAAPL/AAABAAAAAAD///P/AAABAAEAAAD///T/AAABAAEAAAD///b/AAABAAEAAAAAAPr/AAABAAEAAAABAPr/AAABAAEAAAACAPr/AAABAAEAAAACAPv/AAABAAAAAAACAPz/AAABAAEAAAABAP7/AAABAAAAAAABAPj/AAABAAAAAAABAAIAAAABAAEAAAABAAEAAAABAAAAAAABAAAAAAABAAEAAAABAP//AAABAAEAAAAAAAUAAAABAAEAAAAAAAQAAAABAAAAAAAAAAMAAAABAAEAAAACAAQAAAABAAAAAAACAAYAAAABAAAAAAABAAcAAAABAAAAAAABAAgAAAABAAAAAAABAAYAAAABAAAAAAABAAUAAAABAAAAAAABAAQAAAABAAAAAAABAAMAAAACAAEAAAACAAAAAAABAAAAAAACAAEAAAABAAAAAAACAAIAAAACAAEAAAACAAMAAAACAAEAAAABAP3/AAACAAAAAAACAPT/AAABAAAAAAABAPP/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_ilx7y")
+script = ExtResource("2_pb1l4")
+
+[node name="iso-player" parent="." unique_id=13616659 instance=ExtResource("2_tahli")]
+position = Vector2(20, 18)
+
+[node name="Camera2D" type="Camera2D" parent="iso-player" unique_id=1221749989]
+
+[node name="foreground2" type="TileMapLayer" parent="." unique_id=1845042324]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_ilx7y")
+script = ExtResource("2_pb1l4")

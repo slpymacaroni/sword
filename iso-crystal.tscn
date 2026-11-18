@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dmrjagew12i40"]
+
+[ext_resource type="Texture2D" uid="uid://bdf54a4b1atax" path="res://assets/sprites/iso-goalcrystal.png" id="1_c5up3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7e47"]
+atlas = ExtResource("1_c5up3")
+region = Rect2(0, 0, 16, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dj38d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7e47")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1949863851]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2023616514]
+sprite_frames = SubResource("SpriteFrames_dj38d")

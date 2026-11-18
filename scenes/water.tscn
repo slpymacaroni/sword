@@ -1,0 +1,151 @@
+[gd_scene load_steps=20 format=3 uid="uid://cth7arrlmwyvk"]
+
+[ext_resource type="Texture2D" uid="uid://bnskfq4shycvm" path="res://assets/sprites/world_tileset - Copy (3).png" id="1_bdk6y"]
+[ext_resource type="Texture2D" uid="uid://bukb4236av81i" path="res://assets/sprites/checkpoint.png" id="2_s3811"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3811"]
+atlas = ExtResource("1_bdk6y")
+region = Rect2(64, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1n2c"]
+atlas = ExtResource("1_bdk6y")
+region = Rect2(80, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewrsg"]
+atlas = ExtResource("2_s3811")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiwy5"]
+atlas = ExtResource("2_s3811")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgdjl"]
+atlas = ExtResource("2_s3811")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5exq1"]
+atlas = ExtResource("2_s3811")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pb3l"]
+atlas = ExtResource("2_s3811")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htah3"]
+atlas = ExtResource("2_s3811")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a35vf"]
+atlas = ExtResource("2_s3811")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6428"]
+atlas = ExtResource("2_s3811")
+region = Rect2(96, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhskj"]
+atlas = ExtResource("2_s3811")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bf1b"]
+atlas = ExtResource("2_s3811")
+region = Rect2(32, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feeo5"]
+atlas = ExtResource("2_s3811")
+region = Rect2(64, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvc0e"]
+atlas = ExtResource("2_s3811")
+region = Rect2(96, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtvsg"]
+atlas = ExtResource("1_bdk6y")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmdeg"]
+atlas = ExtResource("1_bdk6y")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewrsg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3811")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1n2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewrsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fiwy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgdjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5exq1")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pb3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htah3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a35vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6428")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhskj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bf1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feeo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvc0e")
+}],
+"loop": false,
+"name": &"new_animation_2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtvsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmdeg")
+}],
+"loop": true,
+"name": &"new_animation_3",
+"speed": 3.0
+}]
+
+[node name="water" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ewrsg")
+autoplay = "default"
+frame_progress = 0.52029246
